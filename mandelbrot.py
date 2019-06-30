@@ -1,22 +1,24 @@
 """
 TO DO
-- Allow for different ways of generating?
-    Pixel-based vs layer-based?
-    Different functions. E.g. Mandelbrot vs Buddahbrot.
-- Black/white vs other functionality?
-- Info about generation time?
-    Maybe store this in a csv, with depth, etc etc.
-    As well as version number?
 - Make into a single file?
     Make it easy to just put in a dir and use
     the graphing functions.
+- Allow for different ways of generating?
+    Pixel-based vs layer-based?
+    Different functions. E.g. Mandelbrot vs Buddahbrot.
+- Black/white vs other functionality? (In function file.)
+- Info about generation time?
+    Maybe store this in a csv, with depth, etc etc.
+    As well as version number?
+
 
 """
 
+
 import grapher
 import image_generator
-import math
 
+import math
 
 
 def Z(a_z, b_z, a_c, b_c):
@@ -52,8 +54,8 @@ def func(x, y):
     return [0, 0, 0]
 
 
-w = 100
-h = 100
+w = 200
+h = 200
 
 rgb = image_generator.gen_plane(func, w, h)
 

@@ -35,14 +35,14 @@ class Grapher:
         self.y_max = y1
 
 
-    def set_axes(self, a):
-        if a:
+    def set_axes(self, f):
+        if f:
             self.axes = True
         else:
             self.axes = False
     
-    def set_frame(self, a):
-        if a:
+    def set_frame(self, f):
+        if f:
             self.frame = True
         else:
             self.frame = False
@@ -73,6 +73,7 @@ class Grapher:
         for i in range(self.w):
             self.img[i][y_zero] = frame_color
 
+
     #def create(self):
     #    return
     #    with open('img.png', 'wb') as f:
@@ -85,17 +86,24 @@ class Grapher:
     #    #self.img = png_img.load()
     #    png_img.save(self.img)
         
-    def create(self):
+    
+    def create(self, img=False):
+        if not img:
+            img = self.img
+        
+        directory = "img/"
+        file_ext = ".png"
+        
         i = 0
-        f_name = "img/" + str(i)
+        f_name = directory + str(i)
         
-        while os.path.isfile(f_name + ".png"):
+        while os.path.isfile(f_name + file_ext):
             i += 1
-            f_name = "img/" + str(i)
+            f_name = directory + str(i)
         
-        f_name = f_name + ".png"
+        f_name = f_name + file_ext
         
-        scipy.misc.imsave(f_name, self.img)
+        scipy.misc.imsave(f_name, img)
         
         #os.startfile(f_name)
         image = Image.open(f_name)
